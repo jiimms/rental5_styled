@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 @mixin box-shadow {
 	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
@@ -93,16 +94,44 @@ body {
 	font-size: 20px;
 }
 
+.category-name{
+	color: #d9eff7;
+	font-size: 30px;
+	padding: 1em;
+}
+
+
+.category-name-index{
+}
+.category-name-index a{
+	color: rgb(103, 118, 154);
+	font-size: 30px;
+	font-weight: 500;
+}
+
+.edit-button {
+	text-align: right;
+	
+}
+
+.fa{
+	color: silver;
+	font-size: 20px;
+}
+
 .eachItem {
-	background: gray;
+	background: rgba(40, 96, 144, 0.24);
 	border-radius: 5px;
 	margin-bottom: 40px;
 	padding: 1em;
 	@include box-shadow;
-	.image_wrapper {
+	.image-wrapper {
 		max-width: 100%;
-		border-radius: 5px 5px 0 0;
+		
 		overflow: hidden;
+		color: #d9eff7;
+		font-size: 16pt;
+		font-weight: 400;
 	}
 	img {
 		width: 100%;
@@ -141,7 +170,14 @@ body {
 .item_image {
 	max-width: 100%;
 	border-radius: 5px;
+	margin-top: 20px;
 	@include box-shadow;
+}
+
+.item-name-index{
+	color: #8c879f;
+	font-weight: 300;
+	font-size: 18px;
 }
 
 
@@ -162,9 +198,9 @@ body {
 }
 
 .first {
-	border-bottom: 0.3px solid gray;
+	border-bottom: 1px groove black;
 	padding-bottom: 15px;
-	padding-top: 15px;
+	padding-top: 50px;
 }
 
 .min_wrapper {

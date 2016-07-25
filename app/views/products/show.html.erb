@@ -1,8 +1,7 @@
 
 
 <p>
-  <strong>Category:</strong>
-  <%= @product.category %>
+  <strong class = "category-name"><%= @product.category %></strong>
 </p>
 <div class ="row">
  	<%if (@product.category == "Books")%>
@@ -10,9 +9,10 @@
 		<div class ="col col-md-3">
 			<div class ="eachItem">
 				<div class ="image-wrapper">
-			<p>Book Title:<%=i.item_for_rent%> </p><p>Author Name <%=i.brand%></p>
-			<p>Rent:<%= i.rental_cost%> | 
-			<%= image_tag i.image.image.url %>
+					<%= image_tag i.image.image.url %><br>
+					<%=i.item_for_rent%> <br>
+					Author:<%=i.brand%><br>
+					Rent: Rs.<%= i.rental_cost%>  
 			</div>
 			</div> 
 			</div> 
@@ -24,9 +24,10 @@
 			<div class ="eachItem">
 				<div class ="image-wrapper">
 			
-					<%= image_tag i.image.image.url %>
-			<br>Item Name:<%=i.item_for_rent%><br> Brand:  <%=i.brand%>
-			<br>Rent:<%=i.rental_cost%>
+					<%= image_tag i.image.image.url %><br>
+					<%=i.item_for_rent%><br> 
+					Brand:  <%=i.brand%><br>
+					Rent: Rs.<%=i.rental_cost%>
 			<a href="/cart/<%= i.id%>">Add to cart</a>
 			</div>
 			</div> 
