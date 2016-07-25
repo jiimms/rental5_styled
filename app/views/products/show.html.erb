@@ -1,0 +1,46 @@
+
+
+<p>
+  <strong>Category:</strong>
+  <%= @product.category %>
+</p>
+<div class ="row">
+ 	<%if (@product.category == "Books")%>
+		<%@product.items.each do |i|%>
+		<div class ="col col-md-3">
+			<div class ="eachItem">
+				<div class ="image-wrapper">
+			<p>Book Title:<%=i.item_for_rent%> </p><p>Author Name <%=i.brand%></p>
+			<p>Rent:<%= i.rental_cost%> | 
+			<%= image_tag i.image.image.url, class: "recipe_image" %>
+			</div>
+			</div> 
+			</div> 
+		<%end%>
+	<%else%>
+
+		<%@product.items.each do |i|%>
+		<div class ="col col-md-3">
+			<div class ="eachItem">
+				<div class ="image-wrapper">
+			
+					<%= image_tag i.image.image.url, class: "recipe_image" %>
+			<br>Item Name:<%=i.item_for_rent%><br> Brand:  <%=i.brand%>
+			<br>Rent:<%=i.rental_cost%>
+			<a href="/cart/<%= i.id%>">Add to cart</a>
+			</div>
+			</div> 
+			</div> 
+		<%end%>
+	<%end%>
+</div>
+
+
+
+
+
+
+
+
+<%= link_to 'Edit or Add new Items', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

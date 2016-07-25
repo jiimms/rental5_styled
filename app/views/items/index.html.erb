@@ -1,0 +1,24 @@
+<h1>Items#index</h1>
+
+<table>
+	<tr>
+	<th></th>
+	<th width = 100 >Item</th>
+	<th width = 280>Brand</th>
+	<th width = 100>Price</th>
+	<th width = 100>Category</th>
+</tr>
+
+<%@items.each do |i|%>
+
+<tr>
+	<td><%=image_tag i.image.image.url,   class: "item_index_image" %></td>
+<td class = "centered"><%= i.item_for_rent%></td>
+<td class = "centered"><%= i.brand%></td>
+<td class = "centered"><%= i.rental_cost%></td>
+<td class = "centered"><%= i.product%>
+</td>
+
+</tr>
+<%end%>
+</table>

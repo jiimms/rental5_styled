@@ -1,0 +1,27 @@
+<%= render 'products/search'%>
+
+<div class="products-index">
+  <% @products.each do |product| %>
+      <div class ="row first">
+        <div class="col col-md-12">
+          <%= link_to product.category, product %>
+          <%= link_to  product  do %>
+            <div class ="row">
+              <%product.items.each do |i|%>
+                <div class="col col-md-2">
+                  <%=image_tag i.image.image.url,   class: "item_image" %>
+                  <br>Item:<%=i.item_for_rent%><br>
+                </div>
+              <%end%>
+            </div>
+            <%end%>
+          <%= link_to 'Edit or Add new Items', edit_product_path(product) %>
+          <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    <% end %>
+</div>
+  
+
+
+

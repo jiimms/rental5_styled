@@ -1,0 +1,44 @@
+<div class = "cart_page"><h1 class = "cart_page_h1">Your Cart</h1>
+
+<%if !@cart.empty?%>
+<%= link_to 'Empty your cart', cart_clear_path%>
+<%end%>
+<%total = 0%>
+
+<div class ="row">
+	<div class = "col col-md-8">
+<table>
+	<tr class = "table_header">
+		<th width = 100></th>
+		<th width = 280></th>
+		<th width = 100><span>Price</span></th>
+		<th width = 80>Quantity</th>
+	</tr>
+<%@cart.each do |id, quantity|%>
+	<% item = Item.find_by_id(id)%>
+	<tr >
+		<td>
+		<%= image_tag item.image.image.url, class: "thumb_image" %></td>
+		<td><h3><%= item.item_for_rent%><br>
+			<%=item.brand%></h3></td>
+		<td class = "centered price"><%= number_to_currency(item.rental_cost, :unit => 'INR ')%></td>
+		<td class = "centered quantity"><%=quantity%></td>
+		</tr>
+		<% total += quantity * item.rental_cost%>
+<%end%>
+</table>
+<p><b>Total cart Value: <%=number_to_currency(total, unit: 'INR')%></b><p>
+<p><h4 class = "btn btn-success">Proceed to Checkout</h4>
+</div>
+
+
+<div class ="col col-md-4">
+	<p class ="before_checkout">Please check the <%=link_to "Terms and conditions", "#"%> of rental and return before proceeding</p>
+	<div class = "subtotal">
+	<p class = "cart_value"><b>Total Cart Value:: <%=number_to_currency(total, unit: 'INR ')%></b><p>
+<p><h4 class = " checkout btn btn-success">
+	<%=link_to "Proceed to Checkout", products_trans_path%></h4>
+</div>
+</div>
+</div>
+</div>
