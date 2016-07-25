@@ -47,6 +47,27 @@ class ProductsController < ApplicationController
      redirect_to products_url, notice: 'Product was successfully destroyed.' 
   end
 
+  def trans_pay
+    
+    #@item = Item.find params[:item_id]
+    @result = Braintree::Transaction.sale(
+    :amount => params[:cart_total],
+    :credit_card => {
+      :number => params[:credit_card_no],
+      :expiration_date => "#{params['date']['exp_date(2i)']}/#{params['date']['exp_date(1i)']}"
+    },
+    :options=> {
+                    store_in_vault: true
+                  })
+  if @result.success?
+  current_user.update_columns(braintree_customer_id: @result.transaction.customer_details.id)
+  redirect_to :action=>"order", :controller => "cart"
+  
+  else
+  redirect_to :action=>"trans", notice: "Transaction fail"
+  end
+  end
+
   private
     def set_product
       @product = Product.find(params[:id])

@@ -17,6 +17,14 @@ class CartController < ApplicationController
 		redirect_to :action => :index
 	end 
 
+		def order
+		if session[:cart] then
+  		@cart = session[:cart]
+  	else
+  		@cart = {}
+    end
+	end
+
 def clearCart
 		session[:cart] = nil
 		redirect_to :action => :index

@@ -1,0 +1,35 @@
+<div class = "cart_page">
+<h1>"Congratulations!! Your order was placed successfully!"</h1>
+
+<h3 class = "cart_page_h1">Your Order Summary</h3>
+<%@total = 0%>
+
+<div class ="row">
+	<div class = "col col-md-8">
+<table>
+	<tr class = "table_header">
+		<th width = 100></th>
+		<th width = 280></th>
+		<th width = 100><span>Price</span></th>
+		<th width = 80>Quantity</th>
+	</tr>
+<%@cart.each do |id, quantity|%>
+	<% item = Item.find_by_id(id)%>
+	<tr >
+		<td>
+		<%= image_tag item.image.image.url, class: "thumb_image" %></td>
+		<td><h3><%= item.item_for_rent%><br>
+			<%=item.brand%></h3></td>
+		<td align = "center" class = "price"><%= number_to_currency(item.rental_cost, :unit => 'INR ')%></td>
+		<td align = "center"><%=quantity%></td>
+		</tr>
+		<% @total += quantity * item.rental_cost%>
+<%end%>
+</table>
+<p><b>Total cart Value: <%=number_to_currency(@total, unit: 'INR')%></b><p>
+</div>
+
+
+
+</div>
+</div>

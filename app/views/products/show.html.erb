@@ -12,7 +12,7 @@
 				<div class ="image-wrapper">
 			<p>Book Title:<%=i.item_for_rent%> </p><p>Author Name <%=i.brand%></p>
 			<p>Rent:<%= i.rental_cost%> | 
-			<%= image_tag i.image.image.url, class: "recipe_image" %>
+			<%= image_tag i.image.image.url %>
 			</div>
 			</div> 
 			</div> 
@@ -24,7 +24,7 @@
 			<div class ="eachItem">
 				<div class ="image-wrapper">
 			
-					<%= image_tag i.image.image.url, class: "recipe_image" %>
+					<%= image_tag i.image.image.url %>
 			<br>Item Name:<%=i.item_for_rent%><br> Brand:  <%=i.brand%>
 			<br>Rent:<%=i.rental_cost%>
 			<a href="/cart/<%= i.id%>">Add to cart</a>
