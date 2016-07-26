@@ -16,7 +16,7 @@
 <td class = "centered item-index-list"><%= i.item_for_rent%></td>
 <td class = "centered item-index-list"><%= i.brand%></td>
 <td class = "centered item-index-list"><%= i.rental_cost%></td>
-<td class = "centered item-index-list"><%= Product.find(i.product_id).category%>
+<td class = "centered item-index-list"><%= link_to Product.find(i.product_id).category, Product.find(i.product_id)%>
 </td>
 
 </tr>

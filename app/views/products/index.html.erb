@@ -8,10 +8,13 @@
             <div class = "col col-md-6 category-name-index">
               <%= link_to product.category, product %>
             </div>
+
+            <%if current_user == User.find(1)%>
             <div class ="col col-md-6 edit-button">
               <%= link_to(content_tag(:i,nil,class: 'fa fa-pencil-square-o'), edit_product_path(product)) %>
               <%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), product, method: :delete, data: { confirm: 'Are you sure?' }) %>
             </div>
+            <%end%>
           </div>
 
           <%= link_to  product  do %>
