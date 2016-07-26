@@ -1,21 +1,33 @@
-<%= form_tag action: :trans_pay, :cart_total => params[:cart_total] , method: :post do %>
-  <tr>
-    <td><%= label_tag :name%></td>
-    <td><%= text_field_tag :name%></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :credit_card_no%></td>
-      <td><%= text_field_tag :credit_card_no%></td>
-      </tr>
-      <tr>
-        <td><%= label_tag :csv%></td>
-        <td><%= text_field_tag :csv%></td>
-        </tr>
-        <tr>
-          <td><%= label_tag :expiry_date%></td>
-          <td><%= date_select :date, :exp_date, :order=>[:month, :year]%></td>
-          </tr>
-          <tr>
-          <td><%= submit_tag "Make Payment"%></td>
-          </tr>
-<%end%>
+  <div class ="row">
+    <div class ="col col-md-6 col-md-offset-3 trans-form-p">
+      <p>Please update Credit Card Details</p>
+    </div>
+  </div>
+
+  <div class ="row trans-form">
+    <div class = "col col-md-6 col-md-offset-3">
+      <div class ="wrapper">
+        <div class ="trans-pay-wrapper">
+          <div class = "row">
+            <div class="col col-md-10 col-md-offset-1 trans-pay-fields">
+              <%= form_tag action: :trans_pay, :cart_total => params[:cart_total] , method: :post do %>
+              <%= label_tag :Cardholder_name%>
+              <%= text_field_tag :Cardholder_name, nil, required: true, autofocus: true, class: 'form-control'%><br>
+      
+      
+              <%= label_tag :credit_card_no%>
+              <%= text_field_tag :credit_card_no,nil, required: true, class: 'form-control'%><br>
+                    
+              <%= label_tag :csv%>
+              <%= text_field_tag :csv,nil, required: true, class: 'form-control'%><br>
+          
+              <%= label_tag :expiry_date%><br>
+              <%= date_select :date, :exp_date, :order=>[:month, :year]%><br><br>
+                            
+              <p><%= submit_tag "Make Payment", class: " trans-btn btn btn-primary form-control"%></p>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

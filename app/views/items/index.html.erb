@@ -1,22 +1,22 @@
-<h1>Items#index</h1>
+<h1>All Items</h1>
 
 <table>
 	<tr>
 	<th></th>
-	<th width = 100 >Item</th>
-	<th width = 280>Brand</th>
-	<th width = 100>Price</th>
-	<th width = 100>Category</th>
+	<th class = "item-list-header", width = 200 >Item</th>
+	<th class = "item-list-header", width = 180>Brand</th>
+	<th class = "item-list-header", width = 100>Price</th>
+	<th class = "item-list-header", width = 100>Category</th>
 </tr>
 
 <%@items.each do |i|%>
 
-<tr>
+<tr class = "items-row">
 	<td><%=image_tag i.image.image.url,   class: "item_index_image" %></td>
-<td class = "centered"><%= i.item_for_rent%></td>
-<td class = "centered"><%= i.brand%></td>
-<td class = "centered"><%= i.rental_cost%></td>
-<td class = "centered"><%= i.product%>
+<td class = "centered item-index-list"><%= i.item_for_rent%></td>
+<td class = "centered item-index-list"><%= i.brand%></td>
+<td class = "centered item-index-list"><%= i.rental_cost%></td>
+<td class = "centered item-index-list"><%= Product.find(i.product_id).category%>
 </td>
 
 </tr>

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   
   def index
     @products = Product.all
@@ -59,13 +59,12 @@ class ProductsController < ApplicationController
     :options=> {
                     store_in_vault: true
                   })
-  if @result.success?
-  current_user.update_columns(braintree_customer_id: @result.transaction.customer_details.id)
-  redirect_to :action=>"order", :controller => "cart"
-  
-  else
-  redirect_to :action=>"trans", notice: "Transaction fail"
-  end
+    if @result.success?
+      current_user.update_columns(braintree_customer_id: @result.transaction.customer_details.id)
+      redirect_to :action=>"order", :controller => "cart"
+    else
+      redirect_to :action=>"trans", notice: "Transaction fail"
+    end
   end
 
   private

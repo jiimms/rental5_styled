@@ -1,8 +1,7 @@
 <div class = "cart_page">
-<h1>"Congratulations!! Your order was placed successfully!"</h1>
-
-<h3 class = "cart_page_h1">Your Order Summary</h3>
-<%@total = 0%>
+	<h1>"Congratulations!! Your order was placed successfully!"</h1>
+	<h3 class = "cart_page_h1">Your Order Summary</h3>
+	<%@total = 0%>
 
 <div class ="row">
 	<div class = "col col-md-8">
@@ -25,10 +24,13 @@
 		</tr>
 		<% @total += quantity * item.rental_cost%>
 <%end%>
-</table>
-<p><b>Total cart Value: <%=number_to_currency(@total, unit: 'INR')%></b><p>
+</table><br><br>
+<p><b>Total Order Value: <%=number_to_currency(@total, unit: 'INR')%></b><p>
 </div>
 
+	<div>
+		<span class= "cart-continue-shopping-btn btn btn-primary"><%=link_to "Continue Shopping", root_path%></span>
+	</div>
 
 
 </div>
