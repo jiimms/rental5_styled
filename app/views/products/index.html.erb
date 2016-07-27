@@ -18,7 +18,7 @@
           </div>
 
           <%= link_to  product  do %>
-            <div class ="row">
+            <div class ="row each-product-row">
               <%product.items.each do |i|%>
                 <div class="col col-md-2">
                   <%=image_tag i.image.image.url,   class: "item_image" %>

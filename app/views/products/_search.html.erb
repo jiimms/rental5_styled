@@ -1,6 +1,5 @@
 <% if @products.blank? %>
   <h4>There are no Products containing the term <%= params[:search] %>.</h4>
-  <%= link_to "Return to all Products", products_path%>
 <% end %>
 
 <%=form_tag(products_path, :method => 'get', id: "search-form") do %>	

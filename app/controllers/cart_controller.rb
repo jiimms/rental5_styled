@@ -29,6 +29,7 @@ def clearCart
 		session[:cart] = nil
 		redirect_to :action => :index
 	end
+	# helper_method :clearCart
 
 
   def index

@@ -55,3 +55,6 @@ gem "font-awesome-rails"
 gem 'braintree'
 
 gem 'figaro'
+
+gem 'will_paginate',           '3.1.0'
+gem 'bootstrap-will_paginate', '0.0.10'

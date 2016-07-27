@@ -128,6 +128,9 @@ body {
 		color: #d9eff7;
 		font-size: 14px;
 	}
+
+	
+
 	img {
 		width: 100%;
 		margin-bottom: 10px;
@@ -343,3 +346,8 @@ abbr[title] {
      border-bottom: none; 
      color: maroon;
 }
+
+.each-product-row{
+		height: 210px;
+		overflow: hidden;
+	}

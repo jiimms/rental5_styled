@@ -1,14 +1,10 @@
 class ItemsController < ApplicationController
-
-
-  def index
-  	@items=Item.all
+	def index
+    @items = Item.paginate(page: params[:page], per_page: 20)
     if params[:search]
-    	@items = Item.search(params[:search]).order("rental_cost ASC")
-  	else
-    	@items = Item.all
-  	end
-  end
-
-  
+      @items = Item.search(params[:search]).paginate(page: params[:page])
+    else
+      @items = Item.paginate(page: params[:page], per_page: 20)
+    end
+	end
 end
