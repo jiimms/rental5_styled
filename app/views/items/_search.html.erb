@@ -1,9 +1,9 @@
-<% if @products.blank? %>
-  <h4>There are no Products containing the term <%= params[:search] %>.</h4>
-  <%= link_to "Return to all Products", products_path%>
+<% if @items.blank? %>
+  <h4>There are no Items containing the term <%= params[:search] %>.</h4>
+  <%= link_to "Return to all Items", products_path%>
 <% end %>
 
-<%=form_tag(products_path, :method => 'get', id: "search-form") do %>	
+<%=form_tag(items_path, :method => 'get', id: "search-form") do %>	
 <div class ="search-bar">
 	<%= text_field_tag :search, params[:search], placeholder: "Search"%>
 	</div>
@@ -13,3 +13,7 @@
 <%if params[:search]%>
 	<span class = "btn btn-info"><%=link_to "Back"%></span>
 <%end%>
+
+
+
+
